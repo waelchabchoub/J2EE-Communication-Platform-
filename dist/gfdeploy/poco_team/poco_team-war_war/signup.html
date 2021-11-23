@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            function check_password() {
+                if (document.getElementById('password').value ==
+                  document.getElementById('confirm_password').value) {
+                  document.getElementById('message').style.color = 'green';
+                  document.getElementById('message').innerHTML = 'matching';
+                } else {
+                  document.getElementById('message').style.color = 'red';
+                  document.getElementById('message').innerHTML = 'not matching';
+                }
+              }
+        </script>
+        <div>signup</div>
+        
+        <form action="/poco_team-war/Signup_serv" method="post" enctype="multipart/form-data"> <!-- multipart/form-data is one of the value of enctype attribute, which is used in form element that have a file upload. multi-part means form data divides into multiple parts and send to server -->
+             nom : <input type="text" name="nom" required><br>
+             prenom : <input type="text" name="prenom" required><br>
+             email : <input type="text" name="email" required><br>
+             login : <input type="text" name="login" required><br>
+             password : <input type="password" id="password" name="password" onkeyup="check_password()" required><br>
+             confirm password : <input type="password" id="confirm_password" name="confirm_password" onkeyup="check_password()" required> <span id='message'></span> <br>
+             insert image : <input type="file" id="image" name="image" accept="image/jpeg" required><br>
+             <input type="submit" value="signup"><br>
+            
+        </form>
+        
+        already have an account : <a href="signin.jsp">signin</a>
+
+    </body>
+</html>
